@@ -1,0 +1,28 @@
+#include "Zombie.hpp"
+
+Zombie::Zombie(): _name("Chowder")
+{
+	std::cout << '\t' << "Zombie created with default name Chowder" << std::endl;
+}
+
+Zombie::Zombie(std::string &name)
+{
+	this->setName(name);
+	std::cout << '\t' << this->_name << ":\tZombie created" << std::endl;
+}
+
+void Zombie::setName(const std::string &name)
+{
+	this->_name = name;
+}
+
+void Zombie::announce(void)
+{
+	std::cout << '\t'  << this->_name << ":\tBraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+
+Zombie::~Zombie()
+{
+	std::cout << '\t'  << this->_name << ":\thas been annihilated."  << std::endl;
+}
