@@ -1,16 +1,11 @@
 #include "HumanA.hpp"
 
-HumanA::HumanA(): _name("Jimmy")
-{
-	std::cout << "Default human contructor." << std::endl;
-}
-
-HumanA::HumanA(const std::string& name, Weapon& weapon): _name("Jhonny")
+HumanA::HumanA(const std::string& name, Weapon& weapon): _name("Jhonny"), _weapon(weapon)
 {
 	if (name.empty() || name.find_first_not_of(" \t\v\r\n") == name.npos || weapon.getType().empty())
 	{
 		this->_name = "Jhonny";
-		this->_weapon = Weapon("Unknown");
+		this->_weapon = Weapon();
 	}
 	this->_name = name;
 	this->_weapon = weapon;

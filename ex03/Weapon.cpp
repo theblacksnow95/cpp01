@@ -30,5 +30,5 @@ const std::string& Weapon::getType()
 
 Weapon::~Weapon()
 {
-	std::cout << RED << "Default destructor" << RST << std::endl;
+	std::cout << RED << "Default weapon destructor" << RST << std::endl;
 }

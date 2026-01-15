@@ -7,7 +7,7 @@ C98 = -std=c++98
 
 #################	Sources			##################################
 
-SRC = main.cpp  Weapon.cpp
+SRC = main.cpp Weapon.cpp HumanA.cpp
 
 #################	Objects			##################################
 
