@@ -7,7 +7,9 @@ int	main()
 	std::cout << "Array created." << std::endl;
 	for (int i = 0; i < 5; i++)
 	{
-		delete arrZomb;
+		arrZomb[i].announce();
 	}
+	std::cout << RED << "Destroying all alloced zombies." << std::endl;
+	delete[] arrZomb;
 	return (0);
 }

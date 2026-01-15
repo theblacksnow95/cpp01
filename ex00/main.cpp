@@ -10,8 +10,8 @@ int	main()
 	randomChump("Morty");
 	randomChump("Pickle Rick");
 	std::cout << GRN << "Initialising heap zombies" << RST << std::endl;
-	Zombie* allocZomb = newZombie("Pepe");
-	Zombie* anotherZomb = newZombie("Chomper");
+	Zombie* allocZomb = newZombie("Elliot");
+	Zombie* anotherZomb = newZombie("Theo");
 	allocZomb->announce();
 	anotherZomb->announce();
 	std::cout << RED << "Destroying heap zombies" << RST << std::endl;

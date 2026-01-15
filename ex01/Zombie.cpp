@@ -5,15 +5,15 @@ Zombie::Zombie(): _name("Chowder")
 	std::cout << '\t' << "Zombie created with default name Chowder" << std::endl;
 }
 
-Zombie::Zombie(std::string &name)
+Zombie::Zombie(std::string &name): _name(name)
 {
-	this->setName(name);
 	std::cout << '\t' << this->_name << ":\tZombie created" << std::endl;
 }
 
-void Zombie::setName(const std::string &name)
+void Zombie::setName(const std::string& name)
 {
 	this->_name = name;
+	std::cout << "\t" << "Name set for zombie: " << name << std::endl; 
 }
 
 void Zombie::announce(void)

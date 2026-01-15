@@ -17,7 +17,6 @@ public:
 	// constructor
 	Zombie();
 	Zombie(std::string &name);
-	void	setName(const std::string &name);
 	// member function
 	void	announce(void);
 	~Zombie();
