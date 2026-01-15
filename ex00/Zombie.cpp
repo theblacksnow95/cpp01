@@ -7,6 +7,10 @@ Zombie::Zombie(): _name("Chowder")
 
 Zombie::Zombie(std::string &name): _name(name)
 {
+	if (name.empty() || name.find_first_not_of(" \t\v\r\n") == name.npos)
+	{
+		this->_name = "Chowder";
+	}
 	std::cout << '\t' << this->_name << ":\tZombie created" << std::endl;
 }
 

@@ -2,7 +2,7 @@
 
 Zombie::Zombie(): _name("Chowder")
 {
-	std::cout << '\t' << "Zombie created with default name Chowder" << std::endl;
+	std::cout << GRN <<'\t' << "Zombie created with default constructor" << RST << std::endl;
 }
 
 Zombie::Zombie(std::string &name): _name(name)
@@ -12,6 +12,10 @@ Zombie::Zombie(std::string &name): _name(name)
 
 void Zombie::setName(const std::string& name)
 {
+	if (name.empty() || name.find_first_not_of(" \t\v\r\n") == name.npos)
+	{
+		this->_name = "Chowder";
+	}
 	this->_name = name;
 	std::cout << "\t" << "Name set for zombie: " << name << std::endl; 
 }
