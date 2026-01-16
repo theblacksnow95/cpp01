@@ -2,25 +2,23 @@
 
 Weapon::Weapon(): _type("Unknown")
 {
-	std::cout << GRN << "Default contructor Weapon" << RST << std::endl;
+	std::cout << "\t" << GRN << "Default contructor Weapon" << RST << std::endl;
 }
 
 Weapon::Weapon(const std::string& type): _type(type)
 {
 	if (type.empty() || type.find_first_not_of(" \t\v\r\n") == type.npos)
 	{
-		this->_type = "Depression";
+		this->_type = "Depression <3";
 	}
-	this->_type = type;
 }
 void	Weapon::setType(const std::string& type)
 {
 	if (type.empty() || type.find_first_not_of(" \t\v\r\n") == type.npos)
 	{
-		this->_type = "Depression";
+		this->_type = "Depression <3";
 	}
 	this->_type = type;
-
 }
 
 const std::string& Weapon::getType()
@@ -30,5 +28,5 @@ const std::string& Weapon::getType()
 
 Weapon::~Weapon()
 {
-	std::cout << RED << "Default weapon destructor" << RST << std::endl;
+	std::cout << "\t" << RED << "Default weapon destructor" << RST << std::endl;
 }

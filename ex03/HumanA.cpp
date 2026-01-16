@@ -2,22 +2,19 @@
 
 HumanA::HumanA(const std::string& name, Weapon& weapon): _name("Jhonny"), _weapon(weapon)
 {
-	if (name.empty() || name.find_first_not_of(" \t\v\r\n") == name.npos || weapon.getType().empty())
-	{
+	if (name.empty() || name.find_first_not_of(" \t\v\r\n") == name.npos)
 		this->_name = "Jhonny";
+	if (weapon.getType().empty())
 		this->_weapon = Weapon();
-	}
-	this->_name = name;
-	this->_weapon = weapon;
-
+	std::cout << "\t" << this->_name << ": Human A appeard" << std::endl;
 }
 
 void	HumanA::attack()
 {
-	std::cout << this->_name << " attacks with their " << this->_weapon.getType() << std::endl;
+	std::cout << "\t" << this->_name << " attacks with their " << this->_weapon.getType() << std::endl;
 }
 
 HumanA::~HumanA()
 {
-	std::cout << "Default human destructor." << std::endl;
+	std::cout <<  "\t" << "Default human destructor." << std::endl;
 }
