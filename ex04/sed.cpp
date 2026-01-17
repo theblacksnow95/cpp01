@@ -11,8 +11,6 @@ int	sed(std::string& fileName, std::string s1, std::string s2)
 		return (std::cout << "Error opening the file." << std::endl, 1);
 	if (s1.empty() || s2.empty())
 		return (1);
-	if (buff.find(s1) < 0)
-		std::cout << "string <" << s1 << "> not present in file : " << fileName << std::endl;
 	while (getline(inFile, buff))
 	{
 		int oldPos = buff.find(s1);
@@ -21,15 +19,16 @@ int	sed(std::string& fileName, std::string s1, std::string s2)
 			outFile << buff << std::endl;
 			continue;
 		}
-		while(buff.find(s1, oldPos))
+		while(buff.find(s1, oldPos) != buff.npos)
 		{
-
-			buff = buff.substr(0, oldPos) + s2;
-			std::string secondChunk = buff.substr(oldPos + s1.size(), buff.find(s1));
-			buff.append(s2).append(secondChunk);
-			outFile << buff << std::endl;
-			std::cout << buff << std::endl;
+			std::string firstChunk = buff.substr(0, oldPos);
+			std::string secondChunk = buff.substr(oldPos + s1.size(), buff.size());
+			firstChunk.append(s2).append(secondChunk);
+			oldPos = firstChunk.find(s1, oldPos + s2.size());
+			buff = firstChunk;
+			std::cout << firstChunk << std::endl;
 		}
+			outFile << buff << std::endl;
 	}
 	outFile.close();
 	inFile.close();
