@@ -4,9 +4,9 @@ int	sed(std::string& fileName, std::string s1, std::string s2)
 {
 	std::ifstream	inFile;
 	std::string		buff;
-	std::ofstream	outFile(fileName + ".replace");
+	std::ofstream	outFile((fileName + ".replace").c_str());
 
-	inFile.open(fileName);
+	inFile.open(fileName.c_str());
 	if (inFile.fail() || outFile.fail())
 		return (std::cout << "Error opening the file." << std::endl, 1);
 	if (s1.empty() || s2.empty())
