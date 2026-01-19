@@ -8,9 +8,16 @@ int	sed(std::string& fileName, std::string s1, std::string s2)
 
 	inFile.open(fileName.c_str());
 	if (inFile.fail() || outFile.fail())
-		return (std::cout << "Error opening the file." << std::endl, 1);
-	if (s1.empty() || s2.empty())
+		return (std::cout << RED << "Error: opening the file." << RST << std::endl, 1);
+	if (s1.empty())
+	{
+		if (s2.empty())
+			std::cout << RED << "Error: Strings must not be empty." << RST << std::endl;
+		while (getline(inFile, buff))
+			outFile << buff << std::endl;
 		return (1);
+	}
+	int found = 0;
 	while (getline(inFile, buff))
 	{
 		int oldPos = buff.find(s1);
@@ -26,10 +33,14 @@ int	sed(std::string& fileName, std::string s1, std::string s2)
 			firstChunk.append(s2).append(secondChunk);
 			oldPos = firstChunk.find(s1, oldPos + s2.size());
 			buff = firstChunk;
-			std::cout << firstChunk << std::endl;
+			found++;
 		}
 			outFile << buff << std::endl;
 	}
+	if (found == 0)
+		std::cout << YLL << "Word not found." << RST << std::endl;
+	else
+		std::cout << "String replaced: " << found << " times." << std::endl;
 	outFile.close();
 	inFile.close();
 	return(0);

@@ -42,6 +42,9 @@ fclean:	clean
 
 re: clean all
 
-.PHONY: all clean fclean re
+del:
+	rm -rf *.replace
+
+.PHONY: all clean fclean re del
 
 .SILENT:
