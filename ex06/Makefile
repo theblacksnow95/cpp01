@@ -1,6 +1,6 @@
 #################	TARGET & FLAGS	##################################
 
-TARGET = Harl
+TARGET = harlFilter
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -g
 C98 = -std=c++98

@@ -4,15 +4,20 @@ int	sed(std::string& fileName, std::string s1, std::string s2)
 {
 	std::ifstream	inFile;
 	std::string		buff;
-	std::ofstream	outFile((fileName + ".replace").c_str());
-
+	
 	inFile.open(fileName.c_str());
-	if (inFile.fail() || outFile.fail())
+	if (inFile.fail())
 		return (std::cout << RED << "Error: opening the file." << RST << std::endl, 1);
+	std::ofstream	outFile((fileName + ".replace").c_str());
+	if (outFile.fail())
+		return (std::cout << RED << "Error: creating the file." << RST << std::endl, 1);
 	if (s1.empty())
 	{
+		
 		if (s2.empty())
 			std::cout << RED << "Error: Strings must not be empty." << RST << std::endl;
+		if (s1.empty())
+			std::cout << YLL << "No changes applied copy created." << RST << std::endl;
 		while (getline(inFile, buff))
 			outFile << buff << std::endl;
 		return (1);

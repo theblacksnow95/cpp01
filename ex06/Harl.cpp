@@ -2,11 +2,10 @@
 
 Harl::Harl()
 {
-	std::cout << "Constructor Harl." << std::endl;
 }
 void	Harl::debug(void)
 {
-	std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!" << std::endl;
+	std::cout  << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!" << std::endl;
 }
 void	Harl::info(void)
 {
@@ -24,16 +23,32 @@ void	Harl::error(void)
 void	Harl::complain(std::string level)
 {
 	std::string	arr[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	void		(Harl::*func[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-
-	for (int i = 0; i < 4; i++)
+	int	i = 5;
+	for (int j = 0; j < 4; j++)
 	{
-		if (arr[i] == level)
-			(this->*func[i])();
+		if (level == arr[j])
+		{
+			i = j;
+			break ;
+		}
+	}
+	switch (i) 
+	{
+		case 0:
+			this->debug();
+		case 1:
+			this->info();
+		case 2:
+			this->warning();
+		case 3:
+			this->error();
+			break;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+			return ; 
 	}
 }
 
 Harl::~Harl()
 {
-	std::cout << "Destructor Harl called." << std::endl;
 }
