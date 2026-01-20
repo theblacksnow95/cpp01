@@ -23,10 +23,15 @@ void	Harl::error(void)
 
 void	Harl::complain(std::string level)
 {
-	std::string arr[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	
-}
+	std::string	arr[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	void		(Harl::*func[])() = {Harl::debug(), info(), warning(), error()};
 
+	for (int i = 0; i < 4; i++)
+	{
+		if (arr[i] == level)
+			func[i];
+	}
+}
 
 Harl::~Harl()
 {
